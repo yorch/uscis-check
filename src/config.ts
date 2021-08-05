@@ -6,7 +6,6 @@ export const config = {
     messageHeader: env.MESSAGE_HEADER,
     nodeEnv: env.NODE_ENV,
     recipientPhoneNumber: env.RECIPIENT_PHONE_NUMBER,
-    storageKeyvFile: env.STORAGE_KEYV_FILE,
     twilio: {
         accountSid: env.TWILIO_ACCOUNT_SID,
         from: env.TWILIO_FROM,

@@ -9,7 +9,7 @@ const logger = createLogger('Task');
 const KEY = 'status';
 
 export const task = async () => {
-    const storage = getStorage();
+    const storage = await getStorage();
     const status = await checkStatus();
 
     logger.info(status, 'Current status');
