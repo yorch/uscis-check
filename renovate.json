@@ -1,0 +1,16 @@
+{
+  "separateMultipleMajor": true,
+  "packageRules": [
+    {
+      "updateTypes": ["major"],
+      "labels": ["update-major"],
+      "automerge": false,
+      "masterIssueApproval": true
+    },
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "requiredStatusChecks": null
+    }
+  ]
+}

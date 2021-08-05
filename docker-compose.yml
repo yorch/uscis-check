@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  node:
+    build: .
+    container_name: uscis-check
+    restart: unless-stopped
+    environment:
+      - CASE_NUMBER=${CASE_NUMBER}
+      - CRON_SCHEDULE=${CRON_SCHEDULE}
+      - MESSAGE_HEADER=${MESSAGE_HEADER}
+      - RECIPIENT_PHONE_NUMBER=${RECIPIENT_PHONE_NUMBER}
+      - STORAGE_KEYV_FILE=${STORAGE_KEYV_FILE}
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_FROM=${TWILIO_FROM}
+      - TWILIO_MESSAGING_SERVICE_SID=${TWILIO_MESSAGING_SERVICE_SID}
+      - TWILIO_SECRET=${TWILIO_SECRET}
+      - TWILIO_SID=${TWILIO_SID}
