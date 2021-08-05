@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@git.brnby.com:barnaby-tech/uscis-news.git"
+    "url": "git@git.brnby.com:barnaby-tech/uscis-check.git"
   },
   "type": "module",
   "dependencies": {
