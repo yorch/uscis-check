@@ -6,31 +6,37 @@ import { getStorage } from './storage.js';
 
 const logger = createLogger('Task');
 
-export const task = async () => {
-    const key = 'status';
+const KEY = 'status';
 
+export const task = async () => {
     const storage = getStorage();
     const status = await checkStatus();
 
     logger.info(status, 'Current status');
 
-    const previousStatus = storage.get(key);
+    const previousStatus = await storage.get(KEY);
 
     if (!previousStatus) {
-        logger.info('No previous status');
+        logger.debug('No previous status');
     } else {
-        logger.info(previousStatus, 'Previous status');
+        logger.debug(previousStatus, 'Previous status');
     }
 
-    if (JSON.stringify(previousStatus) !== JSON.stringify(status)) {
-        storage.set('status', status);
+    if (JSON.stringify(previousStatus) === JSON.stringify(status)) {
+        logger.info(
+            'Current and previous status are the same, no notification sent'
+        );
+    } else {
+        await storage.set(KEY, status);
+
+        const content = stripIndents`
+            Status: ${status.currentStatus}
+            ${status.title}
+            ${status.details}
+        `;
 
         await sendSms({
-            body: stripIndents`
-                Status: ${status.currentStatus}
-                ${status.title}
-                ${status.details}
-            `,
+            body: content,
         });
     }
 };
