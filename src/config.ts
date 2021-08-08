@@ -3,7 +3,6 @@ const { env } = process;
 export const config = {
     caseNumber: env.CASE_NUMBER,
     cronSchedule: env.CRON_SCHEDULE,
-    messageHeader: env.MESSAGE_HEADER,
     nodeEnv: env.NODE_ENV,
     recipientPhoneNumber: env.RECIPIENT_PHONE_NUMBER,
     twilio: {
