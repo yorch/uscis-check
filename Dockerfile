@@ -1,9 +1,10 @@
-FROM node:14-alpine
+FROM node:16-alpine
 LABEL maintainer="jorge.barnaby@gmail.com"
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn ./.yarn
 
 RUN yarn install --immutable \
     && yarn cache clean
