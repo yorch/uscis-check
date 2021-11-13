@@ -1,5 +1,5 @@
 import { dirname, join } from 'path';
-import findUp from 'find-up';
+import { findUp } from 'find-up';
 import Keyv from 'keyv';
 import { KeyvFile } from 'keyv-file';
 import { createLogger } from './logger.js';
